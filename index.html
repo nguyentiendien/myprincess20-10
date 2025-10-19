@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>20/10 – For You 💐</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- SweetAlert2 (popup ảnh giữa màn hình) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Pháo giấy -->
+    <canvas id="confetti-canvas"></canvas>
+  
+    <!-- Header -->
+    <header class="hero">
+        <h1>Chúc mừng 20/10 MyPrincess 💐</h1>
+        <p class="subtitle">Một món quà nho nhỏ khiến em vui đến già ✨</p>
+    </header>
+
+    <!-- Thẻ trung tâm -->
+    <main class="card">
+        <h2>Em sẵn sàng nhận điều dễ thương chưa? 😘</h2>
+
+        <!-- Ảnh hiển thị trong thẻ (tuỳ chọn) -->
+        <img src="NewFolder1/anh12.jpg" alt="Bông Hoa Xinhh Đẹp Nhất Cụa Anhhh" class="gift-img" />
+        <p class="caption">Bông Hoa Xinh Đẹp Nhất Của Anhhhh 🌸</p>
+        <div class="actions">
+            <button id="btn-yes" class="btn primary">Đã sẵn sàng!</button>
+            <button id="btn-no" class="btn ghost">Chưa đâu 🙈</button>
+        </div>
+    </main>
+
+    <!-- Modal lời chúc -->
+    <div id="modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content">
+            <button id="modal-close" class="close" aria-label="Đóng">×</button>
+            <h3>Gửi em nhân ngày 20/10</h3>
+            <p>
+                Chúc em luôn xinh đẹp, rạng rỡ và gặp thật nhiều điều tốt lành.
+                Cảm ơn em vì đã luôn yêu anhh! 🌸
+            </p>
+            <p>
+                Hôm nay và như mọi ngày em iu mỉm cười thật nhiều nhé, vì có người đang thầm chúc em hạnh phúc
+                mỗi phút giây. 💖
+            </p>
+            <div class="modal-actions">
+                <button id="btn-more" class="btn primary">Xem thêm điều bất ngờ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast mini -->
+    <div id="toast" class="toast hidden">Anh yêu em bé nhắmmmm! 💗</div>
+
+    <!-- Trái tim bay nền -->
+    <div class="hearts" aria-hidden="true"></div>
+
+    <!-- Nhạc (tuỳ chọn): đặt bgm.mp3 vào wwwroot/ rồi bỏ comment dòng play trong script.js -->
+    <audio id="bgm" preload="auto">
+        <!-- <source src="bgm.mp3" type="audio/mpeg" /> -->
+    </audio>
+
+    <script defer src="script.js"></script>
+</body>
+</html>

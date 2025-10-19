@@ -1,0 +1,223 @@
+﻿:root {
+    --bg: #fff7fb;
+    --fg: #2d2a32;
+    --primary: #ff5fa2;
+    --accent: #ffb3c7;
+    --card: #ffffff;
+    --shadow: 0 20px 60px rgba(0,0,0,0.08);
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html, body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 70% -10%, #ffe6f0 0%, transparent 60%), radial-gradient(900px 500px at -10% 120%, #fff0f7 0%, transparent 60%), var(--bg);
+    color: var(--fg);
+    font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    overflow-x: hidden;
+}
+
+#confetti-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero {
+    text-align: center;
+    padding: 56px 16px 8px;
+}
+
+    .hero h1 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 44px);
+        letter-spacing: .4px;
+    }
+
+.subtitle {
+    opacity: .75;
+    margin-top: 8px
+}
+
+.card {
+    width: min(720px, 92%);
+    margin: 16px auto 64px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    text-align: center;
+}
+
+.gift-img {
+    width: min(320px, 70%);
+    height: auto;
+    margin: 18px auto 8px;
+    display: block;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    transition: transform .25s ease;
+}
+
+    .gift-img:hover {
+        transform: scale(1.04);
+    }
+
+.actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px
+}
+
+.btn {
+    border: 0;
+    padding: 12px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform .08s ease, box-shadow .2s ease, background .2s;
+}
+
+    .btn.primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 10px 24px rgba(255,95,162,.24)
+    }
+
+        .btn.primary:hover {
+            transform: translateY(-1px)
+        }
+
+    .btn.ghost {
+        background: transparent;
+        border: 2px dashed var(--accent);
+        color: var(--fg)
+    }
+
+        .btn.ghost:hover {
+            background: #fff6fa
+        }
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 3;
+    background: rgba(0,0,0,.28);
+}
+
+    .modal.hidden {
+        display: none
+    }
+
+.modal-content {
+    width: min(680px, 92%);
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 24px 22px 18px;
+    position: relative;
+    animation: pop .2s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.98);
+        opacity: .6
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 24px;
+    cursor: pointer;
+    background: #fff0f6
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    background: #222;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 12px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.2);
+    z-index: 4;
+}
+
+    .toast.hidden {
+        display: none
+    }
+
+/* Tim bay */
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(12px 10px at 10px 8px, #ff9dc1 40%, transparent 45%) 0 0/120px 120px, radial-gradient(12px 10px at 10px 8px, #ffd1e0 40%, transparent 45%) 60px 30px/140px 140px;
+    mask: linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,0.05));
+    animation: floathearts 20s linear infinite;
+    opacity: .35;
+}
+
+@keyframes floathearts {
+    to {
+        background-position: 0 -1200px, 60px -900px
+    }
+}
+
+/* Button "No" chạy trốn */
+.btn-runaway {
+    position: relative;
+    will-change: transform;
+}
+.caption {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ff4081;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1.5s ease-in-out;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
