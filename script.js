@@ -139,7 +139,7 @@ function sequenceMessages(list) {
           </p>
         `,
         imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg',
-        imageWidth: 280,
+        imageWidth: 360,
         imageHeight: 'auto'
         confirmButtonText: 'Kết thúc 💖',
         confirmButtonColor: '#ff5fa2',
@@ -169,6 +169,7 @@ function sequenceMessages(list) {
   };
   show();
 }
+
 
 
 
