@@ -79,7 +79,6 @@ btnYes && btnYes.addEventListener('click', () => {
   }
   burst(160);
   toastMsg('Em thật tuyệt! 💗');
-  // Nếu có file nhạc, bỏ comment dòng dưới:
   // bgm?.play().catch(()=>{});
 });
 
@@ -92,13 +91,13 @@ modalClose && modalClose.addEventListener('click', () => {
 btnMore && btnMore.addEventListener('click', () => {
   burst(220);
   sequenceMessages([
-    'Chúc em luôn mỉm cười trên môi nhé ! 😋',
+    'Chúc em luôn mỉm cười trên môi nhé! 😊',
     'Mọi nỗ lực của em đều xứng đáng 💪',
-    'Chúc em một ngày 20/10 tràn ngập niềm vui! Anh Yêu Bé Nhắm ✨'
+    'Hôm nay và những ngày sau thật hạnh phúc nha 🌷'
   ]);
 });
 
-// ====== Nút "Chưa đâu" chạy trốn (hỗ trợ cả chuột & chạm) ======
+// ====== Nút "Chưa đâu" chạy trốn ======
 let evadeCount = 0;
 if (btnNo) {
   btnNo.classList.add('btn-runaway');
@@ -111,23 +110,20 @@ if (btnNo) {
     if (evadeCount % 2 === 0) toastMsg('Đừng ngại, bấm nút hồng kìa! 🌸', 1600);
   };
 
-  // Desktop
   btnNo.addEventListener('mouseenter', evade);
-  // Mobile
   btnNo.addEventListener('touchstart', (e) => { e.preventDefault(); evade(); }, { passive: false });
 }
 
-// ====== Popup ảnh (SweetAlert2) thay cho alert() ======
+// ====== Popup ảnh (SweetAlert2) ======
 function hasSweetAlert() {
   return typeof Swal !== 'undefined' && Swal && typeof Swal.fire === 'function';
 }
 
+/** Chuỗi popup: bấm OK hiện tiếp */
 function sequenceMessages(list) {
   let i = 0;
-
   const show = () => {
     if (!hasSweetAlert()) {
-      // Fallback nếu CDN chưa tải được
       alert(i < list.length ? list[i++] : '💗 Hết bất ngờ rồi …nhưng không hết thương đâu!');
       if (i < list.length) setTimeout(show, 80);
       return;
@@ -135,9 +131,21 @@ function sequenceMessages(list) {
 
     if (i >= list.length) {
       Swal.fire({
-        title: '💗 Hết bất ngờ rồi',
-        text: '…nhưng không hết thương đâu!',
-        confirmButtonColor: '#ff5fa2'
+        title: '💗 Hết bất ngờ rồi!',
+        html: `
+          <p style="font-size:17px">…nhưng không hết thương đâu! 💞</p>
+          <p style="margin-top:10px;color:#ff4f8a;font-weight:600">
+            Chúc em 20/10 thật xinh đẹp và hạnh phúc nha 🌸
+          </p>
+        `,
+        imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh12.jpg',
+        imageWidth: 280,
+        imageHeight: 280,
+        confirmButtonText: 'Kết thúc 💖',
+        confirmButtonColor: '#ff5fa2',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        backdrop: 'rgba(0,0,0,.35)'
       });
       return;
     }
@@ -145,16 +153,19 @@ function sequenceMessages(list) {
     const text = list[i++];
     Swal.fire({
       title: '💐 Lời chúc của Tiến Diện dành cho em',
-      text,
-      imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg', // bạn có thể đổi link ảnh ở đây
+      html: `<p style="font-size:18px">${text}</p>
+             <p style="margin:6px 0 0;color:#ff4f8a;font-weight:600">
+             Bông Hoa Xinh Đẹp Nhất Của Anhhhh 🌸</p>`,
+      imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg',
       imageWidth: 280,
       imageHeight: 280,
-      imageAlt: 'Hoa Cụa Anhhh',
-      confirmButtonText: 'OK',
+      imageAlt: 'Hoa Của Anhhh',
+      confirmButtonText: (i < list.length) ? 'Xem tiếp ➜' : 'Kết thúc 💖',
       confirmButtonColor: '#ff5fa2',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
       backdrop: 'rgba(0,0,0,.35)'
-    }).then(() => setTimeout(show, 80));
+    }).then(() => show());
   };
-
   show();
 }
