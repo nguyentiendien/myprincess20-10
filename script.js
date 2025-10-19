@@ -138,9 +138,9 @@ function sequenceMessages(list) {
             Chúc em 20/10 thật xinh đẹp và hạnh phúc nha 🌸
           </p>
         `,
-        imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg',
-        imageWidth: 360,
-        imageHeight: 'auto'
+         imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg',
+      imageWidth: 280,
+      imageHeight: 280,
         confirmButtonText: 'Kết thúc 💖',
         confirmButtonColor: '#ff5fa2',
         allowOutsideClick: false,
@@ -169,6 +169,7 @@ function sequenceMessages(list) {
   };
   show();
 }
+
 
 
 
