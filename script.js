@@ -109,21 +109,21 @@ function sequenceMessages(list) {
             return;
         }
         const text = list[i++];
-        Swal.fire({
-  title: '💐 Lời chúc của Tiến Diện dành cho em',
-  text,                       // dòng lời chúc của bạn
- imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg',    // hoặc URL tuyệt đối như trên
-  imageAlt: 'Hoa Của Anhhh',
-  imageWidth: 280,
-  imageHeight: 280,
-  footer: '<p style="margin:6px 0 0;color:#ff4f8a;font-weight:600">Bông Hoa Xinh Đẹp Nhất Của Anhhhh 🌸</p>',
-  confirmButtonText: 'OK',
-  confirmButtonColor: '#ff5fa2',
-  backdrop: 'rgba(0,0,0,.35)'
-});then(() => setTimeout(show, 80));
+         Swal.fire({
+       title: '💐 Lời chúc của Tiến Diện dành cho em',
+       text,
+      imageUrl: 'https://nguyentiendien.github.io/myprincess20-10/anh11.jpg',  // Đổi đường dẫn ảnh nếu bạn muốn
+       imageWidth: 280,
+       imageHeight: 280,
+       imageAlt: 'Hoa Cụa Anhhh',
+       confirmButtonText: 'OK',
+       confirmButtonColor: '#ff5fa2',
+       backdrop: `rgba(0,0,0,.35)`
+   }).then(() => setTimeout(show, 80));
     };
     show();
 }
+
 
 
 
