@@ -112,7 +112,7 @@ function sequenceMessages(list) {
         Swal.fire({
             title: '💐 Lời chúc của Tiến Diện dành cho em',
             text,
-            imageUrl: 'NewFolder1/anh11.jpg',   // Đổi đường dẫn ảnh nếu bạn muốn
+            imageUrl: 'anh11.jpg',   // Đổi đường dẫn ảnh nếu bạn muốn
             imageWidth: 280,
             imageHeight: 280,
             imageAlt: 'Hoa Cụa Anhhh',
@@ -123,3 +123,4 @@ function sequenceMessages(list) {
     };
     show();
 }
+
